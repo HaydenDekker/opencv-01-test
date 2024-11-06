@@ -3,9 +3,11 @@ package com.hdekker.opencv_01_test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.opencv.core.Mat;
 import org.opencv.highgui.HighGui;
+import org.opencv.videoio.VideoCapture;
 
 import nu.pattern.OpenCV;
 
@@ -13,10 +15,11 @@ public class ImageReaderTest {
 	
 	String imageURL = "/test/images/test.png";
 	ImageReader r = new ImageReader();
+	Integer waitTimeMillis = 500;
 	
-	static {
-		// https://github.com/openpnp/opencv?tab=readme-ov-file
-		OpenCV.loadLocally();
+	@BeforeAll
+	public static void initOpenCV(){
+		OpenCVUtil.loadLocally();
 	}
 	
 	@Test
@@ -41,10 +44,10 @@ public class ImageReaderTest {
 	public void givenImage_ExpectCanDisplay() throws Exception {
 		
 		Mat image = r.read(imageURL);
-		HighGui.namedWindow("sw");
 		HighGui.imshow("sw", image);
-		HighGui.waitKey();
-		
+		HighGui.waitKey(waitTimeMillis);
+		/// mmmmm how to assert.
+	
 	}
 
 }
