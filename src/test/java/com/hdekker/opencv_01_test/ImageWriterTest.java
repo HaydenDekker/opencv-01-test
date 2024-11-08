@@ -11,12 +11,11 @@ import org.junit.jupiter.api.Test;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
-public class ImageWriterTest {
+public class ImageWriterTest extends OpenCVTest{
 
 	@Test
 	public void canWriteImage() throws IOException {
-		
-		OpenCVUtil.loadLocally();
+
 		String testImageFilePath = "/test/images/blankimg.png";
 		int[] sizes = {10,10};
 		Mat img = Mat.ones(sizes, CvType.CV_8UC1);

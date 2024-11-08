@@ -11,16 +11,11 @@ import org.opencv.videoio.VideoCapture;
 
 import nu.pattern.OpenCV;
 
-public class ImageReaderTest {
+public class ImageReaderTest extends OpenCVTest{
 	
 	String imageURL = "/test/images/test.png";
 	ImageReader r = new ImageReader();
 	Integer waitTimeMillis = 500;
-	
-	@BeforeAll
-	public static void initOpenCV(){
-		OpenCVUtil.loadLocally();
-	}
 	
 	@Test
 	public void givenImage_ExpectCanOpen() throws Exception {

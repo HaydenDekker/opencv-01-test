@@ -13,12 +13,10 @@ import org.opencv.core.Mat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class ColumnResultListConverterTest {
+public class ColumnResultListConverterTest extends OpenCVTest{
 	
 	@Test
 	public void given2dResult_ExpectCanCreateJSONArray() throws JsonProcessingException {
-		
-		OpenCVUtil.loadLocally();
 		
 		String expect = "[[20.0,30.0,40.0],[56.0,76.0,2.0]]";
 		Mat mat = new Mat(1, 2, CvType.CV_32FC3);

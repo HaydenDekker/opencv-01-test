@@ -14,7 +14,7 @@ import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
-public class HughCircleTransFormTest {
+public class HughCircleTransFormTest extends OpenCVTest{
 	
 	String testImage = "speaker-cone.jpg"; //"circle-line.png"; //  // circle-line.png
 	String testImageDir = "src/test/resources/";
@@ -22,18 +22,13 @@ public class HughCircleTransFormTest {
 
 	ImageReader im = new ImageReader();
 	
-	@BeforeAll
-	public static void initOpenCV(){
-		OpenCVUtil.loadLocally();
-	}
-	
 	private Mat openGrayscaleImage(String filename) {
 		
 		String absFilePath = getAbsoluteFilePath(filename);
 		Mat image;
 		try {
 			image = im.read(absFilePath);
-			Mat newMat = convertToGrayscale(image);
+			Mat newMat = GrayscaleImage.convert(image);
 			return newMat;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,18 +40,7 @@ public class HughCircleTransFormTest {
 	
 	public void writeImageWithCirclesToDirectory(String fileName, Mat image, Mat circles) {
 		
-		// Process the detected circles
-		for (int i = 0; i < circles.cols(); i++) {
-		    double[] circle = circles.get(0, i);
-		    int x = (int) Math.round(circle[0]);
-		    int y = (int) Math.round(circle[1]);
-		    int r = (int) Math.round(circle[2]);
-
-		    Imgproc.circle(image, new Point(x, y), r, new Scalar(0, 0, 255), 2);
-		    Imgproc.putText(image, "" + i,  new Point(x, y), 1, 10,  new Scalar(0, 0, 255));
-			
-		}
-		
+		HoughCircleFinder.addCirclesToMat(image, circles, circles.cols());
 		ImageWriter.writeImage(image, testImageDir + fileName);
 
 	}
@@ -67,11 +51,6 @@ public class HughCircleTransFormTest {
 		return absFilePath;
 	}
 	
-	private Mat convertToGrayscale(Mat image) {
-		Mat newMat = new Mat();
-		Imgproc.cvtColor(image, newMat, Imgproc.COLOR_RGB2GRAY);
-		return newMat;
-	}
 	
 	@Test
 	public void givenImageExpect_CirclesFound() throws Exception {
@@ -111,7 +90,7 @@ public class HughCircleTransFormTest {
 		
 	}
 	
-	String circleWithBackground = "opencv-test-red-circle-grass-background.png";
+	String circleWithBackground = TestImages.Images.RED_CIRCLE_GRASS_BACKGROUND.getFileName();
 	
 	/***
 	 * HoughCircles doesn't work well with noise..
