@@ -2,17 +2,10 @@ package com.hdekker.opencv_01_test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.io.File;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 
 public class HughCircleTransFormTest extends OpenCVTest{
 	

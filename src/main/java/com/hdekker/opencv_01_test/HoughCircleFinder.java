@@ -11,7 +11,7 @@ public class HoughCircleFinder {
 	
 	Mat circles = new Mat();
 	
-	private final Integer maxRadius = 300;
+	private final Integer maxRadius = 100;
 	private final Integer minRadius = 10;
 	private final Integer param1 = 300;
 	private final Integer param2 = 100;
@@ -48,6 +48,10 @@ public class HoughCircleFinder {
 	
 	public static void addCirclesToMat(Mat image, Mat circles, Integer numberToDraw) {
 		// Process the detected circles
+		if(circles.cols()<numberToDraw) {
+			numberToDraw = circles.cols();
+		}
+		
 		for (int i = 0; i < numberToDraw; i++) {
 		    double[] circle = circles.get(0, i);
 		    int x = (int) Math.round(circle[0]);

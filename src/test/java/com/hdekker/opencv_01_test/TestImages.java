@@ -1,8 +1,6 @@
 package com.hdekker.opencv_01_test;
 
 import java.io.File;
-import java.util.List;
-
 import org.opencv.core.Mat;
 
 public class TestImages {
@@ -15,7 +13,8 @@ public class TestImages {
 		SPEAKER_CONE("speaker-cone.jpg"),
 		RED_CIRCLE_GRASS_BACKGROUND("opencv-test-red-circle-grass-background.png"),
 		SINGLE_BALL("single-ball.png"),
-		LACROSSE_BALL_GRASS_BACKGROUND("opencv-test-lacrosse-ball-grass.png");
+		LACROSSE_BALL_GRASS_BACKGROUND("opencv-test-lacrosse-ball-grass.png"),
+		ACTION_SOCCER_KICK("action.png");
 		
 		private final String fileName;
 		
@@ -40,22 +39,7 @@ public class TestImages {
 		}
 		return null;
 	}
-	
-	private Mat openGrayscaleImage(String filename) {
-		
-//		String absFilePath = getAbsoluteFilePath(filename);
-//		Mat image;
-//		try {
-//			image = im.read(absFilePath);
-//			Mat newMat = convertToGrayscale(image);
-//			return newMat;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-		return null;
-		
-	}
+
 	
 	private static String getAbsoluteFilePath(String imageName) {
 		File testImageFile = new File(TEST_IMAGE_DIR + imageName);

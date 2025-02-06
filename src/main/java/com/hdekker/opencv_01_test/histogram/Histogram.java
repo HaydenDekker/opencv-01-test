@@ -2,17 +2,10 @@ package com.hdekker.opencv_01_test.histogram;
 
 import java.util.List;
 
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfFloat;
 import org.opencv.core.MatOfInt;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.highgui.HighGui;
 import org.opencv.imgproc.Imgproc;
-
-import com.hdekker.opencv_01_test.GrayscaleImage;
 
 public class Histogram {
 	

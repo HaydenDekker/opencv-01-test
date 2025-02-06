@@ -5,9 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +36,7 @@ public class HistogramTest extends OpenCVTest{
 				
 		});
 		
-		Mat histImage = new Mat(256, 256, CvType.CV_8UC3, Scalar.all(0));
+		//Mat histImage = new Mat(256, 256, CvType.CV_8UC3, Scalar.all(0));
 		
 	}
 

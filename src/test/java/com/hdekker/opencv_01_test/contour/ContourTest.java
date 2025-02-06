@@ -15,7 +15,6 @@ import org.opencv.imgproc.Imgproc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.hdekker.opencv_01_test.HughCircleTransFormTest;
 import com.hdekker.opencv_01_test.ImageWriter;
 import com.hdekker.opencv_01_test.OpenCVTest;
 import com.hdekker.opencv_01_test.TestImages;

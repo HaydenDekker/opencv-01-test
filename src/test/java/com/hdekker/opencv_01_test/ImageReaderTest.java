@@ -3,13 +3,9 @@ package com.hdekker.opencv_01_test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.opencv.core.Mat;
 import org.opencv.highgui.HighGui;
-import org.opencv.videoio.VideoCapture;
-
-import nu.pattern.OpenCV;
 
 public class ImageReaderTest extends OpenCVTest{
 	

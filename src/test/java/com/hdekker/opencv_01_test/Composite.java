@@ -5,15 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
-import org.opencv.highgui.HighGui;
 import org.opencv.imgproc.Imgproc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,10 +37,12 @@ public class Composite extends OpenCVTest{
 				Core.extractChannel(conv, oneChannel, 0);
 				Imgproc.GaussianBlur(oneChannel, oneChannel, new Size(13, 13), 0);
 				GaborFilter gf = new GaborFilter();
-				List<Result> res = gf.apply(oneChannel, "red-bk");
+				List<Result> res = gf.apply(oneChannel, i.getFileName());
 				
 				List<MatOfPoint> pointsl = res.stream()
 					.flatMap(filter->{
+						
+					ImageWriter.writeImage(filter.image(), "" + GaborFilterTest.outputDirectory + filter.filename() + filter.kernel().getTheta() + ".png");
 					
 					List<MatOfPoint> points = new ArrayList<MatOfPoint>();
 					Imgproc.findContours(filter.image(), points, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_TC89_KCOS);

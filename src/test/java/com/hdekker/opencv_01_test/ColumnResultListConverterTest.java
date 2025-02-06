@@ -2,8 +2,6 @@ package com.hdekker.opencv_01_test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -11,7 +9,6 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ColumnResultListConverterTest extends OpenCVTest{
 	
